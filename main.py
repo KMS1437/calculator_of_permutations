@@ -3,6 +3,7 @@ from tkinter import messagebox
 from math import factorial
 from tkinter import ttk
 
+
 def calc_permutations():
     nums = entry_n.get()
     lst = nums.split()
@@ -22,21 +23,9 @@ def calc_placement():
     messagebox.showinfo("Результат", f"{factorial(n) / (factorial(n - k) * factorial(k))}")
 
 
-def calc_permutations_with_repetitions():
-    n = int(entry_n.get())
-    k = int(entry_k.get())
-    messagebox.showinfo("Результат", f"{n ** k}")
-
-
-def calc_combinations_with_repetitions():
-    n = int(entry_n.get())
-    k = int(entry_k.get())
-    messagebox.showinfo("Результат", f"{factorial(n + k - 1) / (factorial(n) * factorial(k - 1))}")
-
-
 root = tk.Tk()
 root.title("Калькулятор комбинаторики")
-root.geometry("400x400")
+root.geometry("350x300")
 
 style = ttk.Style()
 style.configure("TButton", font=("Arial", 12))
@@ -53,12 +42,6 @@ btn_combinations.pack(pady=10)
 
 btn_arrangements = ttk.Button(frame, text="Вычислить размещения", command=calc_placement)
 btn_arrangements.pack(pady=10)
-
-btn_permutations_with_repetitions = ttk.Button(frame, text="Вычислить перестановки с повторениями", command=calc_permutations_with_repetitions)
-btn_permutations_with_repetitions.pack(pady=10)
-
-btn_combinations_with_repetitions = ttk.Button(frame, text="Вычислить сочетания с повторениями", command=calc_combinations_with_repetitions)
-btn_combinations_with_repetitions.pack(pady=10)
 
 label_n = tk.Label(frame, text="Введите n:")
 label_n.pack()
